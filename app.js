@@ -1,7 +1,9 @@
-const data = window.OFFICIAL_CARS;
+let data = window.OFFICIAL_CARS;
 const $ = id => document.getElementById(id);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  if (typeof loadOfficialCars === "function") await loadOfficialCars();
+  data = window.OFFICIAL_CARS;
   $("year").textContent = new Date().getFullYear();
   $("vehicleCount").textContent = data.vehicles.length;
   $("dealerCount").textContent = data.dealers.length;
