@@ -35,3 +35,5 @@ html,body{overflow-x:hidden}
   .detailSpecs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
   .detailSpecs>div{padding:10px}
 }
+
+@media(max-width:620px){.detailSpecs{grid-template-columns:1fr!important}.detailGrid{min-width:0}.dialog,.detailInfo,.gallery{min-width:0;max-width:100%}.mainImg{object-fit:contain!important}.source{width:100%;justify-content:center;text-align:center}.filterPanel{max-height:70dvh;overflow:auto}.filterGroup{grid-template-columns:1fr!important}}
