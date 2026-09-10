@@ -12,3 +12,26 @@ html,body,#app{width:100%;max-width:100%;min-width:0}body{overscroll-behavior-x:
 .filterShell{margin-bottom:22px}.filterToggle{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border:1px solid #d5e0ea;background:#fff;border-radius:14px;color:#17314c;font-weight:800;cursor:pointer}.filterToggle span{font-size:11px;color:#7b8da0;font-weight:600}.filterPanel{display:none;margin-top:10px;padding:14px;background:#f9fbfd;border:1px solid #dce6ef;border-radius:16px}.filterPanel.open{display:block}.filterGroup{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:10px}.filterGroup label{font-size:10px;font-weight:800;color:#61758b}.filterGroup input,.filterGroup select{display:block;width:100%;margin-top:6px;padding:12px;border:1px solid #d4e0ea;border-radius:11px;background:#fff;color:#27394d;font:13px Inter;min-width:0}.filterActions{display:flex;align-items:end;gap:8px;padding-top:17px}.orbitStage{position:relative;width:100%;aspect-ratio:1.35;border-radius:17px;background:#edf3f8;overflow:hidden;touch-action:none;display:grid;place-items:center}.orbitStage .mainImg{width:100%;height:100%;object-fit:contain;border-radius:17px;transition:transform .12s ease;user-select:none;-webkit-user-drag:none}.orbitBadge{position:absolute;z-index:3;top:12px;left:12px;padding:7px 9px;border-radius:999px;background:#06101dcc;color:#dff7ff;font-size:9px;font-weight:900;letter-spacing:.06em}.orbitPrev,.orbitNext{position:absolute;z-index:4;top:50%;transform:translateY(-50%);width:38px;height:38px;border:0;border-radius:50%;background:#06101dcc;color:#fff;font-size:28px;cursor:pointer}.orbitPrev{left:12px}.orbitNext{right:12px}.orbitHint{font-size:10px;color:#72849a;margin-top:8px;text-align:center}.thumbs img.active{border-color:#2b84ff}.noPhoto{display:grid!important;place-items:center;color:#6d91af;font-size:45px}.noPhoto span{font-size:11px;display:block;color:#72849a;margin-top:8px}.navOpen nav{display:flex!important;position:absolute;top:78px;left:10px;right:10px;background:#fff;border:1px solid #dce6ef;border-radius:15px;padding:12px;flex-direction:column;gap:3px;box-shadow:0 20px 50px #06101d22}.navOpen nav a{padding:12px;border-radius:10px}.navOpen nav a:hover{background:#f0f6fb}
 @media(max-width:900px){.carsGrid{grid-template-columns:repeat(2,1fr)}.dealerGrid{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr}.adrail{display:none}.filterGroup{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){html,body{width:100%;max-width:100%;overflow-x:hidden}.nav{height:68px;padding:0 14px}.nav nav,.navCta{display:none}.menu{display:block}.navOpen nav{top:68px}.brandMark{width:34px;height:34px}.hero{padding:52px 16px 38px;gap:25px}.hero h1{font-size:43px}.section{padding:42px 14px}.sectionHead{align-items:flex-start;flex-direction:column}.carsGrid,.dealerGrid,.infoGrid{grid-template-columns:1fr}.car .photo{height:210px}.filterGroup{grid-template-columns:1fr}.filterPanel{padding:10px}.filterToggle span{max-width:52%;text-align:right}.dialog{width:100%;max-width:100%;max-height:calc(100dvh - 20px);border-radius:18px}.modal{padding:10px}.detailGrid{grid-template-columns:1fr}.detailInfo{padding:20px 16px}.detailInfo h2{font-size:26px}.gallery{padding:12px}.orbitStage{aspect-ratio:1.12}.detailSpecs{grid-template-columns:1fr 1fr}.thumbs img{width:64px;height:50px}.sortTop{width:100%}.filterActions{align-items:stretch;flex-direction:column}.filterActions .btn{width:100%}footer{padding:35px 16px}}
+
+/* V10 production layout hardening */
+html,body{overflow-x:hidden}
+.modal{overflow:auto;overscroll-behavior:contain}
+.dialog{max-width:min(1180px,100%);overflow:hidden}
+.detailGrid,.detailInfo,.gallery{min-width:0;max-width:100%}
+.detailInfo{overflow-wrap:anywhere}
+.detailSpecs{min-width:0}
+.detailSpecs>div{min-width:0}
+.detailSpecs b{overflow-wrap:anywhere}
+.mainImg{max-width:100%;max-height:100%;object-fit:contain}
+.orbitStage{isolation:isolate}
+.source{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+@media(max-width:620px){
+  .modal{inset:0;padding:6px;align-items:flex-start}
+  .dialog{width:100%;height:auto;max-height:calc(100dvh - 12px);overflow:auto}
+  .detailGrid{grid-template-columns:1fr}
+  .gallery{padding:8px}
+  .orbitStage{width:100%;height:min(55dvh,420px);aspect-ratio:auto}
+  .detailInfo{width:100%;overflow:hidden}
+  .detailSpecs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .detailSpecs>div{padding:10px}
+}
